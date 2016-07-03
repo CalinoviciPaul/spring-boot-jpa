@@ -1,10 +1,12 @@
 package org.irian.springCloud.domain;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Set;
 
 /**
  * Created by IrianLaptop on 7/3/2016.
  */
+@XmlRootElement
 public class Store {
 
 

@@ -5,6 +5,7 @@ import org.irian.springCloud.domain.Store;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
 import java.util.HashSet;
@@ -13,7 +14,7 @@ import java.util.Set;
 /**
  * Created by IrianLaptop on 7/3/2016.
  */
-@Controller
+@RestController
 public class StoreController {
 
     private Store store;
@@ -28,7 +29,7 @@ public class StoreController {
     }
 
     @RequestMapping("/store")
-    public @ResponseBody Store getStore(){
+    public  Store getStore(){
         return this.store;
     }
 }
