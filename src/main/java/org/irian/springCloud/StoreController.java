@@ -1,8 +1,11 @@
 package org.irian.springCloud;
 
+import org.irian.springCloud.dao.StoreDao;
 import org.irian.springCloud.domain.Product;
 import org.irian.springCloud.domain.Store;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,19 +20,12 @@ import java.util.Set;
 @RestController
 public class StoreController {
 
-    private Store store;
+    @Autowired
+    StoreDao storeDao;
 
 
-    @PostConstruct
-    public void init(){
-        Set<Product> productSet = new HashSet<>();
-        productSet.add(new Product("Product1","Brand1",2));
-        productSet.add(new Product("Product2","Brand2",3));
-        store = new Store("Store1","Address1",productSet);
-    }
-
-    @RequestMapping("/store")
-    public  Store getStore(){
-        return this.store;
+    @RequestMapping("/stores/{name}")
+    public  Store getStore(@PathVariable String name){
+        return storeDao.findByName(name);
     }
 }

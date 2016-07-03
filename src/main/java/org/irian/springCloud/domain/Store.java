@@ -1,5 +1,6 @@
 package org.irian.springCloud.domain;
 
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Set;
 
@@ -7,11 +8,18 @@ import java.util.Set;
  * Created by IrianLaptop on 7/3/2016.
  */
 @XmlRootElement
+@Entity
 public class Store {
 
 
+    @Id
+    @GeneratedValue
+    private Long id;
     private String name;
     private String address;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "storeId")
     private Set<Product> productSet;
 
     public Store() {
