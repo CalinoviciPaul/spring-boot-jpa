@@ -7,7 +7,6 @@ import java.util.Set;
 /**
  * Created by IrianLaptop on 7/3/2016.
  */
-@XmlRootElement
 @Entity
 public class Store {
 

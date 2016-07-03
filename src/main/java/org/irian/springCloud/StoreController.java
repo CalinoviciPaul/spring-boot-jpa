@@ -23,9 +23,9 @@ public class StoreController {
     @Autowired
     StoreDao storeDao;
 
-
+/*
     @RequestMapping("/stores/{name}")
     public  Store getStore(@PathVariable String name){
         return storeDao.findByName(name);
-    }
+    }*/
 }
