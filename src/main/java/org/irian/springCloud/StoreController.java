@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -28,4 +29,17 @@ public class StoreController {
     public  Store getStore(@PathVariable String name){
         return storeDao.findByName(name);
     }*/
+
+    @RequestMapping("/store")
+    public @ResponseBody
+    List<Store> getStore(){
+        return storeDao.findAll();
+    }
+
+
+    @RequestMapping("/store/{name}")
+    public @ResponseBody Store getStoreByName(@PathVariable String name){
+        return storeDao.findByName(name);
+    }
+
 }

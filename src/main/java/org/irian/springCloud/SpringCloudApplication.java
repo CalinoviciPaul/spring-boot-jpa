@@ -42,7 +42,7 @@ public class SpringCloudApplication extends SpringBootServletInitializer {
 	@Autowired
 	StoreDao storeDao;
 
-	@PostConstruct
+	/*@PostConstruct
 	public void init(){
 		Set<Product> productSet = new HashSet<>();
 		productSet.add(new Product("Product1","Brand1",2));
@@ -50,5 +50,5 @@ public class SpringCloudApplication extends SpringBootServletInitializer {
 		Store store = new Store("Store1","Address1",productSet);
 		storeDao.save(store);
 	}
-
+*/
 }
