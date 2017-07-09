@@ -18,7 +18,7 @@ public class Store {
     private String address;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "storeId")
+    @JoinColumn(name = "store_id")
     private Set<Product> productSet;
 
     public Store() {

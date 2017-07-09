@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="IrianLaptop (generated)" id="1499626773877-1">
+        <createSequence sequenceName="hibernate_sequence"/>
+    </changeSet>
+    <changeSet author="IrianLaptop (generated)" id="1499626773877-2">
+        <createSequence sequenceName="product_id_seq"/>
+    </changeSet>
+    <changeSet author="IrianLaptop (generated)" id="1499626773877-3">
+        <createSequence sequenceName="store_id_seq"/>
+    </changeSet>
+    <changeSet author="IrianLaptop (generated)" id="1499626773877-4">
+        <createTable tableName="product">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="brand" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="price" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="store_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="IrianLaptop (generated)" id="1499626773877-5">
+        <createTable tableName="store">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="IrianLaptop (generated)" id="1499626773877-6">
+        <addPrimaryKey columnNames="id" constraintName="product_pkey" tableName="product"/>
+    </changeSet>
+    <changeSet author="IrianLaptop (generated)" id="1499626773877-7">
+        <addPrimaryKey columnNames="id" constraintName="store_pkey" tableName="store"/>
+    </changeSet>
+    <changeSet author="IrianLaptop (generated)" id="1499626773877-8">
+        <addForeignKeyConstraint baseColumnNames="store_id" baseTableName="product" constraintName="fk_j9qchw9ki2is6psdc7uuujyqx" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="store"/>
+    </changeSet>
+</databaseChangeLog>

@@ -18,13 +18,16 @@ public class Product {
     private String brand;
     private int price;
 
+    private int s;
+
     public Product() {
     }
 
-    public Product(String name, String brand, int price) {
+    public Product(String name, String brand,int price, int s) {
         this.name = name;
         this.brand = brand;
         this.price = price;
+        this.s = s;
     }
 
     public String getName() {
@@ -49,5 +52,13 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getS() {
+        return s;
+    }
+
+    public void setS(int s) {
+        this.s = s;
     }
 }

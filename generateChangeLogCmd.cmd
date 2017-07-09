@@ -1,0 +1,1 @@
+mvn -Dliquibase.url=jdbc:postgresql://localhost:5432/test_spring -Dliquibase.username=postgres -Dliquibase.password=cristian -Dliquibase.outputChangeLogFile=output2.xml -Dliquibase.diffTypes=tables,views,columns,indexes,foreignkeys,primarykeys,uniqueconstraints,data liquibase:generateChangeLog
