@@ -105,7 +105,28 @@
                 <version>3.4.1</version>
                 <configuration>
                     <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+                    <diffChangeLogFile>src/main/resources/diffLogs/liquibase-diff-changeLog-${maven.build.timestamp}.xml</diffChangeLogFile>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>diff</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>diff</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>updateSQL</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>updateSQL</goal>
+                        </goals>
+                        <configuration>
+                            <changeLogFile>src/main/resources/diffLogs/liquibase-diff-changeLog-${maven.build.timestamp}.xml</changeLogFile>
+                            <migrationSqlOutputFile>src/main/resources/diffLogsSQL/liquibase-diff-SQL-${maven.build.timestamp}.sql</migrationSqlOutputFile>
+                        </configuration>
+                    </execution>
+                </executions>
                 <dependencies>
                     <dependency>
                         <groupId>org.liquibase.ext</groupId>
